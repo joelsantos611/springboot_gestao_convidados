@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-PT" xmlns:th="http://www.thymeleaf.org"
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de convidados</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h1>Gestão de convidados - Cadastro</h1>
+        <header>
+        <nav class="menu">
+            <ul>
+                <li><a href="/convidados/">Convidados</a></li>
+                <li><a href="/eventos">Eventos</a></li>
+                <li><a href="/sobre">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+    </div>
+      <a th:href="@{/convidados/}" class="btnVoltarConvidado">Voltar</a>
+   <form th:action="@{/convidados/salvar}" method="post" th:object="${convidado}" class="formConvidado">
+     <input type="hidden"  th:field="*{id}" required/>
+       <br/>
+       <input type="text" placeholder="Nome do Convidado" th:field="*{nome}" required/>
+       <br/>
+       <input type="text" placeholder="Quantidade de acompanhantes"  th:field="*{quantidadeAcompanhantes}" required/>
+       <br/>
+       <button type="submit" class="btnSalvar">Salvar</button>
+   </form>
+</body>
+</html>

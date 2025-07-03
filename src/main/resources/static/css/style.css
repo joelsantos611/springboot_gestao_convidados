@@ -1,0 +1,146 @@
+*{
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+h1, h2 {
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin: 20px 0;
+}
+/*
+Estilos para o botão de novo cadastro e tabelas
+*/
+.btnNovo, .btnVoltarConvidado {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    margin: 20px;
+}
+.btnNovo:hover, .btnVoltarConvidado:hover {
+    background-color: #0056b3;
+    color: #fff;
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/*
+Estilos para os botões de ação
+*/
+.btnVer, .btnEditar, .btnEliminar {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+.btnVer {
+    background-color: #28a745;
+}
+.btnVer:hover {
+    background-color: #218838;
+}
+.btnEditar {
+    background-color: #ffc107;
+}
+.btnEditar:hover {
+    background-color: #e0a800;
+}
+.btnEliminar {
+    background-color: #dc3545;
+    border: none;
+    cursor: pointer;
+}
+.btnEliminar:hover {
+    background-color: #c82333;
+}
+.btnEliminar form {
+    display: inline;
+} 
+/**Cabeçalho e Menu**/
+header {
+    background-color: #343a40;
+    padding: 10px 0;
+}
+nav.menu {
+    display: flex;
+    justify-content: center;
+}
+nav.menu ul {
+    list-style: none;
+    display: flex; 
+    gap: 20px;
+}
+nav.menu ul li {
+    display: inline;
+}
+nav.menu ul li a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+/* Estilos para o formulário de cadastro de convidados */
+.formConvidado {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.formConvidado input[type="text"],
+.formConvidado input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.formConvidado input[type="submit"] {
+    background-color: #378348;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.formConvidado input[type="submit"]:hover {
+    background-color: #005c17;
+}
+.formConvidado input[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+/*Estilo para o botao de salvar*/
+.btnSalvar {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btnSalvar:hover {
+    background-color: #0056b3;
+}
+/* Estilos para o botão de voltar */
