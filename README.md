@@ -44,8 +44,7 @@ A partir desses fundamentos, foram implementados:
 ## 🚀 Como Executar o Projeto
 
 1. **Clone o repositório:**
-   ```bash
- [  [git clone https://github.com/seu-usuario/seu-repo.git]](https://github.com/joelsantos611/springboot_gestao_convidados)
+ git clone https://github.com/joelsantos611/springboot_gestao_convidados
 
  2. **Acesse a pasta do projeto:**
     
@@ -105,6 +104,10 @@ src
     Paginação da listagem
 
     Autenticação de usuários
+
+    Crud de eventos
+
+    Relacionamento entre convidado e eventos
 
   ## 📝 Licença
 
