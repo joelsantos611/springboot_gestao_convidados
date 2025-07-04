@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.joelsantos.gestao_convidados.model.Convidado;
+import com.joelsantos.gestao_convidados.model.Evento;
 import com.joelsantos.gestao_convidados.repository.ConvidadoRepository;
+import com.joelsantos.gestao_convidados.repository.EventoRepository;
+
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -17,6 +20,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ConvidadoController {  
     @Autowired
     private ConvidadoRepository convidadoRepository;
+
+    private EventoRepository eventoRepository;
 
 
     @GetMapping("/")
@@ -28,7 +33,16 @@ public class ConvidadoController {
     }
  
     @PostMapping("/salvar")
-public String salvarConvidado(Convidado convidado) {
+public String salvarConvidado(Convidado convidado, @RequestParam Long eventoId) {
+        // Verifica se o eventoId é válido
+        if (eventoId == null || eventoId <= 0) {
+            return "redirect:/convidados/novo?error=Evento inválido";
+        }
+        // Busca o evento pelo ID e associa ao convidado
+       Evento evento = eventoRepository.findById(eventoId)
+    .orElseThrow(() -> new RuntimeException("Evento não encontrado"));
+
+         convidado.setEvento(evento);
         this.convidadoRepository.save(convidado);
         return "redirect:/convidados/";
     }
@@ -42,7 +56,8 @@ public String salvarConvidado(Convidado convidado) {
 
     @GetMapping("/editar")
     public ModelAndView editarConvidado(@RequestParam Long id) {
-            Convidado convidado = convidadoRepository.findById(id).orElse(null);
+            Convidado convidado = convidadoRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Convidado não encontrado"));
        
         if (convidado == null) {
             return new ModelAndView("redirect:/convidados/");

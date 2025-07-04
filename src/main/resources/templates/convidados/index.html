@@ -10,9 +10,9 @@
     <header>
         <nav class="menu">
             <ul>
-                <li><a href="/convidados">Convidados</a></li>
-                <li><a href="/eventos">Eventos</a></li>
-                <li><a href="/sobre">Sobre</a></li>
+                <li><a href="/convidados/">Convidados</a></li>
+                <li><a href="/eventos/">Eventos</a></li>
+                <li><a href="/sobre/">Sobre</a></li>
             </ul>
         </nav>
     </header>
@@ -23,6 +23,8 @@
         <thead>
             <tr>
                 <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
                 <th>Acompanhantes</th>
                 <th>Acções</th>
             </tr>
@@ -30,6 +32,8 @@
         <tbody>
             <tr th:each="convidado : ${convidados}">
                 <td th:text="${convidado.nome}"></td>
+                <td th:text="${convidado.email}"></td>
+                <td th:text="${convidado.telefone}"></td>
                 <td th:text="${convidado.quantidadeAcompanhantes}"></td>
                 <td>
                     <a th:href="@{/convidados//ver(id=${convidado.id})}" class="btnVer">Ver</a>

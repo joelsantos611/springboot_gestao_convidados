@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-PT" xmlns:th="http://www.thymeleaf.org"
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de convidados</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h1>Gestão de convidados - Lista de eventos</h1>
+    <header>
+        <nav class="menu">
+            <ul>
+                <li><a href="/convidados/">Convidados</a></li>
+                <li><a href="/eventos/">Eventos</a></li>
+                <li><a href="/sobre/">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        <a th:href="@{/eventos/novo}" class="btnNovo">Novo Evento</a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data</th>
+                <th>Local</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="evento : ${eventos}">
+                <td th:text="${evento.nome}"></td>
+                <td th:text="${evento.data}"></td>
+                <td th:text="${evento.local}"></td>
+                <td>
+                    <a th:href="@{/eventos//ver(id=${evento.id})}" class="btnVer">Ver</a>
+                    <a th:href="@{/eventos/editar(id=${evento.id})}" class="btnEditar">Editar</a>
+                    <a href="#"
+               th:onclick="'if(confirm(\'Deseja realmente excluir o evento?\')){ window.location.href=\'/eventos/eliminar?id=' + ${evento.id} + '\'; } return false;'" class="btnEliminar">
+               Eliminar
+            </a>  </td>
+            </tr>
+        </tbody>
+    </table>
+    <div th:if="${#lists.isEmpty(eventos)}">
+        <p>Nenhum evento encontrado.</p>
+    </div>
+</body>
+</html>

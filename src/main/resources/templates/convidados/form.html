@@ -11,8 +11,8 @@
         <nav class="menu">
             <ul>
                 <li><a href="/convidados/">Convidados</a></li>
-                <li><a href="/eventos">Eventos</a></li>
-                <li><a href="/sobre">Sobre</a></li>
+                <li><a href="/eventos/">Eventos</a></li>
+                <li><a href="/sobre/">Sobre</a></li>
             </ul>
         </nav>
     </header>
@@ -24,9 +24,18 @@
        <br/>
        <input type="text" placeholder="Nome do Convidado" th:field="*{nome}" required/>
        <br/>
+       <input type="text" placeholder="Email"  th:field="*{email}" required/>
+       <br/>
+       <input type="text" placeholder="Telefone"  th:field="*{telefone}" required/>
+       <br/>
        <input type="text" placeholder="Quantidade de acompanhantes"  th:field="*{quantidadeAcompanhantes}" required/>
        <br/>
-       <button type="submit" class="btnSalvar">Salvar</button>
+       <label>Evento:</label>
+    <select name="eventoId" required>
+        <option th:each="evento : ${eventos}" th:value="${evento.id}" th:text="${evento.nome}"></option>
+    </select>
+    <br/>
+    <button type="submit">Adicionar Convidado</button>
    </form>
 </body>
 </html>
